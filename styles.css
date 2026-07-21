@@ -47,7 +47,7 @@ input {
   inset: 0;
   display: grid;
   place-items: center;
-  background: #fff;
+  background: #ffc91a;
   z-index: 9999;
   opacity: 1;
   transition: opacity 1s ease 0.35s, visibility 1s ease 0.35s;
@@ -220,6 +220,28 @@ body.splash-hidden .splash-overlay {
   color: rgba(0, 57, 31, 0.86);
   font-size: clamp(17px, 2vw, 21px);
   line-height: 1.55;
+}
+
+.hero-address {
+  margin: 18px 0 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(0, 57, 31, 0.72);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.hero-address-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.location-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--green);
+  flex-shrink: 0;
 }
 
 .primary-action {
