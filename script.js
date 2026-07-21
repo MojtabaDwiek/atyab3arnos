@@ -33,8 +33,8 @@ const copy = {
 
 const categories = [
   { id: "boxes", en: "Boxes", ar: "Boxes" },
-  { id: "cups", en: "Medium", ar: "Medium" },
-  { id: "specials", en: "Special", ar: "Special" }
+  { id: "cups", en: "Cups", ar: "Cups" },
+  { id: "specials", en: "Specials", ar: "Specials" }
 ];
 
 const menuItems = [
@@ -43,7 +43,7 @@ const menuItems = [
     category: "boxes",
     image: "assets/DORA BOX RER.png",
     prices: [
-      { label: "Medium", value: "300LBP" },
+      { label: "Medium", value: "250LBP" },
       { label: "Large", value: "500LBP" }
     ],
     en: {
@@ -60,7 +60,7 @@ const menuItems = [
     category: "boxes",
     image: "assets/foul box.png",
     prices: [
-      { label: "Medium", value: "250LBP" },
+      { label: "Medium", value: "200LBP" },
       { label: "Large", value: "400LBP" }
     ],
     en: {
@@ -77,7 +77,7 @@ const menuItems = [
     category: "boxes",
     image: "assets/Tormos 44444box.png",
     prices: [
-      { label: "Medium", value: "250LBP" },
+      { label: "Medium", value: "200LBP" },
       { label: "Large", value: "400LBP" }
     ],
     en: {
@@ -99,11 +99,11 @@ const menuItems = [
     ],
     en: {
       name: "Foul mshwe",
-      desc: "grilled beans, lemon, carrot, shmandar"
+      desc: "baked beans, lemon, carrot, shmandar"
     },
     ar: {
       name: "Foul mshwe",
-      desc: "grilled beans, lemon, carrot, shmandar"
+      desc: "baked beans, lemon, carrot, shmandar"
     }
   },
   {
@@ -111,7 +111,7 @@ const menuItems = [
     category: "boxes",
     image: "assets/SHMNDRRRDD.png",
     prices: [
-      { label: "Medium", value: "250LBP" },
+      { label: "Medium", value: "200LBP" },
       { label: "Large", value: "400LBP" }
     ],
     en: {
@@ -145,8 +145,8 @@ const menuItems = [
     category: "specials",
     image: "assets/3cdaaa415435428dbd662487a80f9c80.png",
     prices: [
-      { label: "Medium", value: "350LBP" },
-      { label: "Large", value: "600LBP" }
+      { label: "Medium", value: "300LBP" },
+      { label: "Large", value: "500LBP" }
     ],
     en: {
       name: "Special mix",
@@ -162,8 +162,8 @@ const menuItems = [
     category: "specials",
     image: "assets/CRAZY+BOX+856877960.jpg",
     prices: [
-      { label: "Medium", value: "400LBP" },
-      { label: "Large", value: "700LBP" }
+      { label: "Medium", value: "350LBP" },
+      { label: "Large", value: "600LBP" }
     ],
     en: {
       name: "Crazy cheese",
@@ -175,19 +175,20 @@ const menuItems = [
     }
   },
   {
-    id: "dora-mshwe",
+    id: "loz-and-janerek",
     category: "specials",
-    image: "assets/DORA BOX RER.png",
+    image: "assets/3cdaaa415435428dbd662487a80f9c80.png",
     prices: [
-      { label: "Special", value: "350LBP" }
+      { label: "Medium", value: "300LBP" },
+      { label: "Large", value: "500LBP" }
     ],
     en: {
-      name: "Dora mshwe",
-      desc: "grilled corn, butter, salt"
+      name: "Loz and janerek",
+      desc: "janarek, green almond, lemon, simmak, salt"
     },
     ar: {
-      name: "Dora mshwe",
-      desc: "grilled corn, butter, salt"
+      name: "Loz and janerek",
+      desc: "janarek, green almond, lemon, simmak, salt"
     }
   },
   {
@@ -211,7 +212,7 @@ const menuItems = [
     category: "cups",
     image: "assets/DORA BOX RER.png",
     prices: [
-      { label: "Medium", value: "250LBP" }
+      { label: "Medium", value: "200LBP" }
     ],
     en: {
       name: "Dora",
@@ -220,6 +221,22 @@ const menuItems = [
     ar: {
       name: "Dora",
       desc: "corn, lemon, carrot, shmandar"
+    }
+  },
+  {
+    id: "dora-w-zbdeh-cup",
+    category: "cups",
+    image: "assets/DORA BOX RER.png",
+    prices: [
+      { label: "Medium", value: "250LBP" }
+    ],
+    en: {
+      name: "Dora w zbdeh",
+      desc: "corn, butter, salt"
+    },
+    ar: {
+      name: "Dora w zbdeh",
+      desc: "corn, butter, salt"
     }
   },
   {
@@ -284,7 +301,9 @@ function applyCopy() {
     node.textContent = t(node.dataset.i18n);
   });
   searchInput.placeholder = t("searchPlaceholder");
-  languageToggle.textContent = t("langButton");
+  if (languageToggle) {
+    languageToggle.textContent = t("langButton");
+  }
 }
 
 function renderCategories() {
@@ -442,10 +461,12 @@ searchInput.addEventListener("input", (event) => {
   renderMenu();
 });
 
-languageToggle.addEventListener("click", () => {
-  currentLang = currentLang === "en" ? "ar" : "en";
-  refresh();
-});
+if (languageToggle) {
+  languageToggle.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    refresh();
+  });
+}
 
 closeDialog.addEventListener("click", closeItemDialog);
 dialogCloseText.addEventListener("click", closeItemDialog);
@@ -454,3 +475,11 @@ dialog.addEventListener("click", (event) => {
 });
 
 refresh();
+
+window.addEventListener("load", () => {
+  document.body.classList.add("splash-hidden");
+  const splash = document.querySelector(".splash-overlay");
+  if (splash) {
+    splash.addEventListener("transitionend", () => splash.remove(), { once: true });
+  }
+});

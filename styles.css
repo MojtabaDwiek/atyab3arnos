@@ -42,6 +42,28 @@ input {
   font: inherit;
 }
 
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease 0.35s, visibility 1s ease 0.35s;
+}
+
+.splash-overlay img {
+  width: min(260px, 70vw);
+  max-height: 220px;
+  object-fit: contain;
+}
+
+body.splash-hidden .splash-overlay {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .hero {
   min-height: 58svh;
   padding: 18px clamp(16px, 4vw, 56px) 42px;
@@ -139,6 +161,15 @@ input {
   background: var(--green);
   color: var(--yellow);
   box-shadow: 0 10px 24px rgba(0, 57, 31, 0.18);
+}
+
+.icon-button svg,
+.footer-whatsapp svg,
+.whatsapp-action svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: currentColor;
 }
 
 .icon-button span {
