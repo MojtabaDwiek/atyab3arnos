@@ -194,7 +194,7 @@ const menuItems = [
   {
     id: "remmen",
     category: "specials",
-    image: "assets/3cdaaa415435428dbd662487a80f9c80.png",
+    image: "assets/p4.jpeg",
     prices: [
       { label: "Add", value: "50LBP" }
     ],
@@ -210,7 +210,7 @@ const menuItems = [
   {
     id: "dora-cup",
     category: "cups",
-    image: "assets/DORA BOX RER.png",
+    image: "assets/p1.jpeg",
     prices: [
       { label: "Medium", value: "200LBP" }
     ],
@@ -226,7 +226,7 @@ const menuItems = [
   {
     id: "dora-w-zbdeh-cup",
     category: "cups",
-    image: "assets/DORA BOX RER.png",
+    image: "assets/p2.jpeg",
     prices: [
       { label: "Medium", value: "250LBP" }
     ],
@@ -242,7 +242,7 @@ const menuItems = [
   {
     id: "crazy-cheese-cup",
     category: "cups",
-    image: "assets/CRAZY+BOX+856877960.jpg",
+    image: "assets/p3.jpeg",
     prices: [
       { label: "Medium", value: "300LBP" }
     ],
@@ -253,6 +253,22 @@ const menuItems = [
     ar: {
       name: "Crazy cheese",
       desc: "corn with butter, nachos cheddar, BBQ sauce"
+    }
+  },
+  {
+    id: "remmen",
+    category: "cups",
+    image: "assets/p4.jpeg",
+    prices: [
+      { label: "topping", value: "50LBP" }
+    ],
+    en: {
+      name: "Remmen",
+      desc: "add remmen to your box"
+    },
+    ar: {
+      name: "Remmen",
+      desc: "add remmen to your box"
     }
   }
 ];
